@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScamDetek - Phone Scam</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo-text {
+            margin-left: 10px;
+            background: linear-gradient(to right, #00BFFF, #00FFFF);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00BFFF;
+        }
+
+        .social-icons {
+            display: flex;
+        }
+
+        .social-icons a {
+            margin-left: 15px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            padding: 60px 0;
+        }
+
+        .phone-scam-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .scam-icon {
+            margin-right: 30px;
+        }
+
+        .phone-icon {
+            width: 120px;
+            height: auto;
+        }
+
+        .scam-description h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #4CFF4C, #ADFF2F);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .scam-description p {
+            font-size: 18px;
+            max-width: 600px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            background: linear-gradient(to right, #00BFFF, #87CEEB);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* How It Happens Section */
+        .how-it-happens {
+            margin-bottom: 60px;
+        }
+
+        .process-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .example-box {
+            width: 30%;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid;
+            border-image: linear-gradient(45deg, #00BFFF, #4CFF4C) 1;
+            background-color: rgba(0, 100, 100, 0.2);
+        }
+
+        .example-box p {
+            margin-bottom: 20px;
+        }
+
+        .audio-player {
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .steps-container {
+            width: 65%;
+        }
+
+        .step {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 1px solid;
+            border-image: linear-gradient(45deg, #00BFFF, #4CFF4C) 1;
+            background-color: rgba(0, 100, 100, 0.2);
+            display: flex;
+            align-items: center;
+        }
+
+        .step-number {
+            font-size: 36px;
+            margin-right: 20px;
+            color: #00BFFF;
+            font-weight: bold;
+        }
+
+        .step-content {
+            font-size: 18px;
+        }
+
+        /* How to Defend Section */
+        .how-to-defend {
+            margin-bottom: 60px;
+        }
+
+        .defense-box {
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid;
+            border-image: linear-gradient(45deg, #00BFFF, #4CFF4C) 1;
+            background-color: rgba(0, 100, 100, 0.2);
+        }
+
+        .defense-box ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .defense-box ul li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .defense-box ul li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #00BFFF;
+            font-size: 20px;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 14px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="logo">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M25 5C14.5 5 5 14.5 5 25C5 35.5 14.5 45 25 45C35.5 45 45 35.5 45 25C45 14.5 35.5 5 25 5Z" stroke="#00BFFF" stroke-width="2"/>
+                <circle cx="18" cy="20" r="3" fill="#00BFFF"/>
+                <circle cx="32" cy="20" r="3" fill="#00BFFF"/>
+                <path d="M15 30C15 30 20 35 25 35C30 35 35 30 35 30" stroke="#00BFFF" stroke-width="2"/>
+            </svg>
+            <div class="logo-text">ScamDetek</div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Scam Detection</a></li>
+                <li><a href="#">Knowledge Hub</a></li>
+                <li><a href="#">AI Chatbot</a></li>
+            </ul>
+        </nav>
+
+        <div class="social-icons">
+            <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20Z" fill="white"/></svg></a>
+            <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20Z" fill="white"/></svg></a>
+            <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20Z" fill="white"/></svg></a>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="phone-scam-section">
+            <div class="scam-icon">
+                <svg class="phone-icon" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M100 10C80 10 65 25 65 45V155C65 175 80 190 100 190C120 190 135 175 135 155V45C135 25 120 10 100 10Z" stroke="#00BFFF" stroke-width="4"/>
+                    <path d="M80 40H120" stroke="#00BFFF" stroke-width="2"/>
+                    <circle cx="100" cy="170" r="10" stroke="#00BFFF" stroke-width="2"/>
+                    <path d="M85 30C85 30 80 50 100 50C120 50 115 30 115 30" fill="none" stroke="#00BFFF" stroke-width="2"/>
+                    <text x="75" y="105" fill="#00BFFF" font-size="14">UNKNOWN</text>
+                    <circle cx="90" cy="130" r="5" fill="#00BFFF"/>
+                    <circle cx="110" cy="130" r="5" fill="red"/>
+                </svg>
+            </div>
+            <div class="scam-description">
+                <h1>Phone Scam</h1>
+                <p>Fraudsters pretend to be from government agencies or companies, threatening or manipulating victims over the phone to get personal details or money.</p>
+            </div>
+        </div>
+
+        <div class="how-it-happens">
+            <h2 class="section-title">How Does It Happen?</h2>
+            <div class="process-container">
+                <div class="example-box">
+                    <p>Example of a scammer impersonating a delivery company personnel:</p>
+                    <div class="audio-player">
+                        <audio controls style="width: 100%;">
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1.</div>
+                        <div class="step-content">You receive a call from someone claiming to be from a government agency or the police, threatening legal action.</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2.</div>
+                        <div class="step-content">You are told to transfer money to a "safe" account to avoid arrest.</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3.</div>
+                        <div class="step-content">Once you send the money, the scammer cuts off contact.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="how-to-defend">
+            <h2 class="section-title">How to Defend?</h2>
+            <div class="defense-box">
+                <ul>
+                    <li>Hang up on suspicious calls claiming to be from authorities.</li>
+                    <li>Do not disclose personal or financial information over the phone.</li>
+                    <li>Use the "Semak Mule" portal by PDRM CCID to check suspicious phone numbers.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>©2025 ScamDetek. All rights reserved.</p>
+        <p>Protect yourself from online scam.</p>
+    </footer>
+</div>
+</body>
+</html>
