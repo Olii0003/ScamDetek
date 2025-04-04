@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScamDetek - Report Scams Effectively</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #0ff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            background: linear-gradient(90deg, #0ff, #0080ff, #00ff80);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 18px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #0ff, #0080ff, #00ff80);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        /* Steps Section */
+        .steps-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .steps-wrapper {
+            position: relative;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .step:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Connection lines between circles */
+        .connection-line {
+            position: absolute;
+            left: 50px;
+            width: 2px;
+            background: linear-gradient(to bottom, #0ff, #0080ff, #00ff80);
+            z-index: 1;
+        }
+
+        /* Individual connection lines */
+        .line-1-2 {
+            top: 100px;
+            height: 80px;
+        }
+
+        .line-2-3 {
+            top: 280px;
+            height: 80px;
+        }
+
+        .line-3-4 {
+            top: 460px;
+            height: 80px;
+        }
+
+        .step-number {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: rgba(20, 20, 20, 0.8);
+            border: 2px solid;
+            border-image: linear-gradient(45deg, #0ff, #0080ff, #00ff80) 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 52px;
+            font-weight: bold;
+            margin-right: 30px;
+            position: relative;
+            z-index: 2;
+            color: #0ff;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-button {
+            background-color: rgba(30, 30, 30, 0.8);
+            border: 1px solid #333;
+            color: white;
+            padding: 15px 25px;
+            width: 100%;
+            border-radius: 30px;
+            font-size: 18px;
+            text-align: left;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .step-button:hover {
+            background-color: rgba(40, 40, 40, 0.8);
+            border-color: #0ff;
+        }
+
+        .dropdown-icon {
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 10px solid white;
+            transition: transform 0.3s;
+            margin-left: 10px;
+        }
+
+        .step-content-expanded {
+            margin-top: 15px;
+            padding: 20px;
+            background-color: rgba(30, 30, 30, 0.5);
+            border-radius: 10px;
+            display: none;
+        }
+
+        .step-content-expanded li {
+            margin-bottom: 15px;
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .step-content-expanded li:last-child {
+            margin-bottom: 0;
+        }
+
+        .step.active .dropdown-icon {
+            transform: rotate(180deg);
+        }
+
+        .step.active .step-content-expanded {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid #333;
+            margin-top: 60px;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="logo">
+            <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 10C27.9 10 10 27.9 10 50C10 72.1 27.9 90 50 90C72.1 90 90 72.1 90 50C90 27.9 72.1 10 50 10Z" stroke="url(#gradient)" stroke-width="5" fill="rgba(0,255,255,0.1)"/>
+                <circle cx="35" cy="40" r="8" fill="#0ff"/>
+                <circle cx="65" cy="40" r="8" fill="#0ff"/>
+                <path d="M35 60Q50 80 65 60" stroke="#0ff" stroke-width="5" fill="none"/>
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#0ff" />
+                        <stop offset="50%" stop-color="#0080ff" />
+                        <stop offset="100%" stop-color="#00ff80" />
+                    </linearGradient>
+                </defs>
+            </svg>
+            ScamDetek
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Scam Detection</a></li>
+                <li><a href="#">Knowledge Hub</a></li>
+                <li><a href="#">AI Chatbot</a></li>
+            </ul>
+        </nav>
+
+        <div class="social-icons">
+            <a href="#"><i class="fa">⚙️</i></a>
+            <a href="#"><i class="fa">📱</i></a>
+            <a href="#"><i class="fa">💬</i></a>
+            <a href="#"><i class="fa">𝕏</i></a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Report Scams Effectively<br>Protect Your Rights</h1>
+        </section>
+
+        <section class="steps-container">
+            <div class="steps-wrapper">
+                <!-- Connection lines between circles -->
+                <div class="connection-line line-1-2"></div>
+                <div class="connection-line line-2-3"></div>
+                <div class="connection-line line-3-4"></div>
+
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <button class="step-button">
+                            Gather Evidence
+                            <span class="dropdown-icon"></span>
+                        </button>
+                        <div class="step-content-expanded">
+                            <ul>
+                                <li>Screenshots and Photos: Capture any suspicious messages, emails, or online transactions.</li>
+                                <li>Documents: Include receipts, transaction records, or any written communication.</li>
+                                <li>Phone Call Records: Save any call logs or recordings (if legally permitted).</li>
+                                <li>Bank Statements: Highlight any suspicious transactions.</li>
+                                <li>URLs: Copy links related to fraudulent websites or QR codes.</li>
+                                <li>Social Media Posts: Save any content that seems fraudulent.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <button class="step-button">
+                            Report to the Relevant Authority
+                            <span class="dropdown-icon"></span>
+                        </button>
+                        <div class="step-content-expanded">
+                            <p>File a report with the appropriate agencies:</p>
+                            <ul>
+                                <li>Local police department for crime reports</li>
+                                <li>Federal Trade Commission (FTC) for consumer fraud</li>
+                                <li>Internet Crime Complaint Center (IC3) for online scams</li>
+                                <li>Your country's specific fraud reporting authority</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <button class="step-button">
+                            Contact Your Bank or Financial Institution
+                            <span class="dropdown-icon"></span>
+                        </button>
+                        <div class="step-content-expanded">
+                            <p>Take immediate action to protect your accounts:</p>
+                            <ul>
+                                <li>Report fraudulent transactions and request charge reversals</li>
+                                <li>Change your account passwords and PINs</li>
+                                <li>Request new credit/debit cards if your information was compromised</li>
+                                <li>Consider placing a fraud alert or credit freeze</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <button class="step-button">
+                            Monitor Your Finances and Online Activity
+                            <span class="dropdown-icon"></span>
+                        </button>
+                        <div class="step-content-expanded">
+                            <p>Remain vigilant after reporting:</p>
+                            <ul>
+                                <li>Check your account statements and credit reports regularly</li>
+                                <li>Set up fraud alerts and transaction notifications</li>
+                                <li>Use strong, unique passwords and enable two-factor authentication</li>
+                                <li>Consider using identity theft protection services</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>©2025 ScamDetek. All rights reserved.</p>
+        <p>Protect yourself from online scam.</p>
+    </footer>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const stepButtons = document.querySelectorAll('.step-button');
+
+        stepButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const step = this.closest('.step');
+                step.classList.toggle('active');
+            });
+        });
+    });
+</script>
+</body>
+</html>
