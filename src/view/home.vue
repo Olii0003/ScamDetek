@@ -19,7 +19,7 @@ const link = (path) => {
                     <p class="card-desc">Understand the different types of online scams</p>
                 </div>
 
-                <div class="card">
+                <div class="card" @click="link('/reportScams')">
                     <h2 class="card-title">Reporting Steps</h2>
                     <p class="card-desc">Get the scam reporting tutorial and flowchart</p>
                 </div>
