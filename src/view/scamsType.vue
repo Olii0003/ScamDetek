@@ -2,9 +2,73 @@
 import { ref } from 'vue';
 
 const isHiddenCardsVisible = ref(false);
+const scamCardList = ref([
+    {
+        title: 'Phishing Scam',
+        description: 'Pretending to be a trusted source to steal personal info or money.',
+        cardIcon: 'src/assets/img/Phishing Scam.png'
+    },
+    {
+        title: 'Online Shopping Scam',
+        description: 'Selling fake products or taking money without delivering items.',
+        cardIcon: 'src/assets/img/Online Shopping Scam.png'
+    },
+    {
+        title: 'Romance Scam',
+        description: 'Pretending to be in love to trick victims into sending money.',
+        cardIcon: 'src/assets/img/Romance Scam.png'
+    },
+    {
+        title: 'Job Scam',
+        description: 'Promising high-paying jobs to collect fees or personal info.',
+        cardIcon: 'src/assets/img/Job Scam.png'
+    },
+    {
+        title: 'Investment Scam',
+        description: 'Offering fake high-return investments to steal money.',
+        cardIcon: 'src/assets/img/Investment Scam.png'
+    },
+    {
+        title: 'Phone Scam',
+        description: 'Calling as officials or companies to get money or personal info.',
+        cardIcon: 'src/assets/img/Phone Scam.png'
+    },
+    {
+        title: 'Social Media Scam',
+        description: 'Posting fake links or info to steal data or spread malware.',
+        cardIcon: 'src/assets/img/Social Media Scam.png'
+    },
+    {
+        title: 'Parcel Scam',
+        description: 'Claiming a package is waiting but needs a fee or info to collect.',
+        cardIcon: 'src/assets/img/Parcel Scam.png'
+    },
+])
+const showMoreScamCardList = ref([
+    {
+        title: 'Lottery Scam',
+        description: 'Claiming a prize win but asking for a fee to claim it.',
+        cardIcon: 'src/assets/img/Lottery Scam.png'
+    },
+    {
+        title: 'QR Scams (Quishing)',
+        description: 'Scanning fake QR codes that lead to your personal information being exposed.',
+        cardIcon: 'src/assets/img/QR Scams (Quishing).png'
+    },
+    {
+        title: 'Car Accident Scam',
+        description: 'Causing a minor accident to extort money.',
+        cardIcon: 'src/assets/img/Car Accident Scam.png'
+    },
+    {
+        title: 'Home Purchase! Scam',
+        description: 'Advertising fake properties to collect deposits.',
+        cardIcon: 'src/assets/img/Home Purchasel Scam.png'
+    },
+])
 
 const toggleHiddenCards = () => {
-  isHiddenCardsVisible.value = !isHiddenCardsVisible.value;
+    isHiddenCardsVisible.value = !isHiddenCardsVisible.value;
 };
 </script>
 
@@ -13,79 +77,21 @@ const toggleHiddenCards = () => {
         <h1>Scams to Watch Out For</h1>
         <p class="subtitle">Stay informed of the latest scam tactics in Malaysia.</p>
 
+        <!-- grid布局一行4个 -->
         <div class="scam-grid">
-            <!-- Initial 8 cards -->
-            <div class="scam-card">
-                <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                    <path
-                        d="M528 0H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h192l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h192c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-16 352H64V64h448v288z" />
-                </svg>
-                <h3 class="card-title">Phishing Scam</h3>
-                <p class="card-description">Pretending to be a trusted source to steal personal info or money.</p>
-                <button class="learn-more">Learn More <span class="learn-more-arrow">→</span></button>
-            </div>
-            <div class="scam-card">
-                <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                    <path
-                        d="M528 0H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h192l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h192c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-16 352H64V64h448v288z" />
-                </svg>
-                <h3 class="card-title">Online Shopping Scam</h3>
-                <p class="card-description">Selling fake products or taking money without delivering items.</p>
-                <button class="learn-more">Learn More <span class="learn-more-arrow">→</span></button>
-            </div>
-            <div class="scam-card">
-                <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                    <path
-                        d="M528 0H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h192l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h192c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-16 352H64V64h448v288z" />
-                </svg>
-                <h3 class="card-title">Romance Scam</h3>
-                <p class="card-description">Pretending to be in love to trick victims into sending money.</p>
-                <button class="learn-more">Learn More <span class="learn-more-arrow">→</span></button>
-            </div>
-            <div class="scam-card">
-                <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                    <path
-                        d="M528 0H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h192l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h192c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-16 352H64V64h448v288z" />
-                </svg>
-                <h3 class="card-title">Job Scam</h3>
-                <p class="card-description">Promising high-paying jobs to collect fees or personal info.</p>
-                <button class="learn-more">Learn More <span class="learn-more-arrow">→</span></button>
-            </div>
-            <div class="scam-card">
-                <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                    <path
-                        d="M528 0H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h192l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h192c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-16 352H64V64h448v288z" />
-                </svg>
-                <h3 class="card-title">Investment Scam</h3>
-                <p class="card-description">Offering fake high-return investments to steal money.</p>
-                <button class="learn-more">Learn More <span class="learn-more-arrow">→</span></button>
-            </div>
-            <div class="scam-card">
-                <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                    <path
-                        d="M528 0H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h192l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h192c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-16 352H64V64h448v288z" />
-                </svg>
-                <h3 class="card-title">Phone Scam</h3>
-                <p class="card-description">Calling as officials or companies to get money or personal info.</p>
-                <button class="learn-more">Learn More <span class="learn-more-arrow">→</span></button>
-            </div>
-            <div class="scam-card">
-                <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                    <path
-                        d="M528 0H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h192l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h192c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-16 352H64V64h448v288z" />
-                </svg>
-                <h3 class="card-title">Social Media Scam</h3>
-                <p class="card-description">Posting fake links or info to steal data or spread malware.</p>
-                <button class="learn-more">Learn More <span class="learn-more-arrow">→</span></button>
-            </div>
-            <div class="scam-card">
-                <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                    <path
-                        d="M528 0H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h192l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h192c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-16 352H64V64h448v288z" />
-                </svg>
-                <h3 class="card-title">Parcel Scam</h3>
-                <p class="card-description">Claiming a package is waiting but needs a fee or info to collect.</p>
-                <button class="learn-more">Learn More <span class="learn-more-arrow">→</span></button>
+            <div class="scam-card" v-for="scam in scamCardList" :key="scam.title">
+                <!-- Initial 8 cards -->
+                <img :src="scam.cardIcon" alt="scam-card-icon" class="card-icon">
+                <h3 class="card-title">{{ scam.title }}</h3>
+                <p class="card-description">{{ scam.description }}</p>
+                <button class="learn-more">Learn More <span class="learn-more-arrow">
+                        <svg t="1743783688267" class="arrow-icon" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="9151" width="200" height="200">
+                            <path
+                                d="M323.114667 178.346667l426.624 298.325333a42.666667 42.666667 0 0 1 0 69.930667l-426.624 298.538666A42.666667 42.666667 0 0 1 256 810.24V213.333333a42.666667 42.666667 0 0 1 67.114667-34.986666z"
+                                fill="#ffffff" p-id="9152"></path>
+                        </svg>
+                    </span></button>
             </div>
         </div>
 
@@ -95,52 +101,16 @@ const toggleHiddenCards = () => {
             </button>
         </div>
 
-        <div class="scam-grid" :class="{ 'hidden-cards': !isHiddenCardsVisible }">
+        <div class="scam-grid" v-else>
             <!-- Additional 4 cards (initially hidden) -->
-            <div class="scam-card">
-                <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                    <path
-                        d="M528 0H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h192l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h192c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-16 352H64V64h448v288z" />
-                </svg>
-                <h3 class="card-title">Lottery Scam</h3>
-                <p class="card-description">Claiming a prize win but asking for a fee to claim it.</p>
-                <button class="learn-more">Learn More <span class="learn-more-arrow">→</span></button>
-            </div>
-            <div class="scam-card">
-                <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                    <path
-                        d="M528 0H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h192l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h192c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-16 352H64V64h448v288z" />
-                </svg>
-                <h3 class="card-title">QR Scams (Quishing)</h3>
-                <p class="card-description">Scanning fake QR codes that lead to your personal information being exposed.
-                </p>
-                <button class="learn-more">Learn More <span class="learn-more-arrow">→</span></button>
-            </div>
-            <div class="scam-card">
-                <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                    <path
-                        d="M528 0H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h192l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h192c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-16 352H64V64h448v288z" />
-                </svg>
-                <h3 class="card-title">Car Accident Scam</h3>
-                <p class="card-description">Causing a minor accident to extort money.</p>
-                <button class="learn-more">Learn More <span class="learn-more-arrow">→</span></button>
-            </div>
-            <div class="scam-card">
-                <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                    <path
-                        d="M528 0H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h192l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h192c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-16 352H64V64h448v288z" />
-                </svg>
-                <h3 class="card-title">Home Purchase! Scam</h3>
-                <p class="card-description">Advertising fake properties to collect deposits.</p>
+            <div class="scam-card" v-for="scam in showMoreScamCardList" :key="scam.title">
+                <img :src="scam.cardIcon" alt="scam-card-icon" class="card-icon">
+                <h3 class="card-title">{{ scam.title }}</h3>
+                <p class="card-description">{{ scam.description }}</p>
                 <button class="learn-more">Learn More <span class="learn-more-arrow">→</span></button>
             </div>
         </div>
     </main>
-
-    <footer>
-        <p>©2025 ScamDetek. All rights reserved.</p>
-        <p>Protect yourself from online scam.</p>
-    </footer>
 </template>
 
 <style scoped>
@@ -196,7 +166,7 @@ nav ul li a {
 
 /* Main Content Styles */
 main {
-    padding: 2rem 6rem;
+    padding: 2rem 15rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -237,6 +207,7 @@ h1 {
     align-items: center;
     text-align: center;
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .scam-card:hover {
@@ -244,14 +215,14 @@ h1 {
 }
 
 .card-icon {
-    width: 70px;
-    height: 70px;
+    width: 126px;
+    height: 126px;
     margin-bottom: 1rem;
     filter: invert(60%) sepia(93%) saturate(1352%) hue-rotate(152deg) brightness(101%) contrast(101%);
 }
 
 .card-title {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 0.8rem;
     background: linear-gradient(90deg, #3aa1ff, #00FFFF);
@@ -286,6 +257,14 @@ h1 {
 
 .learn-more-arrow {
     font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-icon {
+    width: 20px;
+    height: 20px;
 }
 
 .show-more-container {
@@ -309,17 +288,5 @@ h1 {
 
 .hidden-cards {
     display: none;
-}
-
-/* Footer Styles */
-footer {
-    text-align: center;
-    padding: 2rem;
-    color: #ccc;
-    font-size: 0.9rem;
-}
-
-footer p {
-    margin: 0.3rem 0;
 }
 </style>
