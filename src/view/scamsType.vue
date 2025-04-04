@@ -1,7 +1,9 @@
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 const isHiddenCardsVisible = ref(false);
+const router = useRouter();
 const scamCardList = ref([
     {
         title: 'Phishing Scam',
@@ -61,7 +63,7 @@ const showMoreScamCardList = ref([
         cardIcon: 'src/assets/img/Car Accident Scam.png'
     },
     {
-        title: 'Home Purchase! Scam',
+        title: 'Home Purchasel Scam',
         description: 'Advertising fake properties to collect deposits.',
         cardIcon: 'src/assets/img/Home Purchasel Scam.png'
     },
@@ -69,6 +71,10 @@ const showMoreScamCardList = ref([
 
 const toggleHiddenCards = () => {
     isHiddenCardsVisible.value = !isHiddenCardsVisible.value;
+};
+
+const goToScamsTypeDetail = (title) => {
+    router.push({ path: '/scamsTypeDetail', query: { title } });
 };
 </script>
 
@@ -79,7 +85,8 @@ const toggleHiddenCards = () => {
 
         <!-- grid布局一行4个 -->
         <div class="scam-grid">
-            <div class="scam-card" v-for="scam in scamCardList" :key="scam.title">
+            <div class="scam-card" v-for="scam in scamCardList" :key="scam.title"
+                @click="goToScamsTypeDetail(scam.title)">
                 <!-- Initial 8 cards -->
                 <img :src="scam.cardIcon" alt="scam-card-icon" class="card-icon">
                 <h3 class="card-title">{{ scam.title }}</h3>
@@ -103,11 +110,19 @@ const toggleHiddenCards = () => {
 
         <div class="scam-grid" v-else>
             <!-- Additional 4 cards (initially hidden) -->
-            <div class="scam-card" v-for="scam in showMoreScamCardList" :key="scam.title">
+            <div class="scam-card" v-for="scam in showMoreScamCardList" :key="scam.title"
+                @click="goToScamsTypeDetail(scam.title)">
                 <img :src="scam.cardIcon" alt="scam-card-icon" class="card-icon">
                 <h3 class="card-title">{{ scam.title }}</h3>
                 <p class="card-description">{{ scam.description }}</p>
-                <button class="learn-more">Learn More <span class="learn-more-arrow">→</span></button>
+                <button class="learn-more">Learn More <span class="learn-more-arrow">
+                        <svg t="1743783688267" class="arrow-icon" viewBox="0 0 1024 1024" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" p-id="9151" width="200" height="200">
+                            <path
+                                d="M323.114667 178.346667l426.624 298.325333a42.666667 42.666667 0 0 1 0 69.930667l-426.624 298.538666A42.666667 42.666667 0 0 1 256 810.24V213.333333a42.666667 42.666667 0 0 1 67.114667-34.986666z"
+                                fill="#ffffff" p-id="9152"></path>
+                        </svg>
+                    </span></button>
             </div>
         </div>
     </main>
