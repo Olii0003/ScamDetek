@@ -1,10 +1,22 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { useRoute } from 'vue-router';
 import { scamsTypeList } from '../utils/const';
 
 const route = useRoute();
 const scamType = ref(scamsTypeList.find(scam => scam.title === route.query.title));
+
+// 监听路由变化，自动滚动到顶部
+const scrollToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+};
+
+onMounted(() => {
+    scrollToTop();
+});
 </script>
 
 <template>

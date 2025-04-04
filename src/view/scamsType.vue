@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
 const isHiddenCardsVisible = ref(false);
@@ -76,6 +76,17 @@ const toggleHiddenCards = () => {
 const goToScamsTypeDetail = (title) => {
     router.push({ path: '/scamsTypeDetail', query: { title } });
 };
+// 监听路由变化，自动滚动到顶部
+const scrollToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+};
+
+onMounted(() => {
+    scrollToTop();
+});
 </script>
 
 <template>
